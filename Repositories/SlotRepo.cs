@@ -7,9 +7,9 @@ namespace ClinicApp.Repositories;
 
 public class SlotRepo : ISlotRepository
 {
-    private ClinicDatabase _db;
+    private ClinicAppDatabase _db;
 
-    public SlotRepo(ClinicDatabase db)
+    public SlotRepo(ClinicAppDatabase db)
     {
         _db = db;
     }

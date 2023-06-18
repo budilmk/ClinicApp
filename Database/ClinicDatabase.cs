@@ -4,12 +4,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClinicApp.Database;
 
-public class ClinicDatabase : DbContext
+public class ClinicAppDatabase : DbContext
 {
     public DbSet<Slot> Slots { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
 
-    public ClinicDatabase(DbContextOptions<ClinicDatabase> options) : base(options)
+    public ClinicAppDatabase()
+    {
+    }
+
+    public ClinicAppDatabase(DbContextOptions<ClinicAppDatabase> options) : base(options)
     {
 
     }
@@ -22,9 +26,9 @@ public class ClinicDatabase : DbContext
 }
 public static class DbExtension
 {
-    public static IServiceCollection AddClinicDb(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddClinicAppDb(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddDbContext<ClinicDatabase>(options =>
+        services.AddDbContext<ClinicAppDatabase>(options =>
         {
             options.UseNpgsql(configuration.GetConnectionString("Postgres"));
         });

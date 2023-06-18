@@ -8,9 +8,9 @@ namespace ClinicApp.Repositories;
 
 public class AppointmentRepo : IAppointmentRepo
 {
-    private ClinicDatabase _db;
+    private ClinicAppDatabase _db;
 
-    public AppointmentRepo(ClinicDatabase db)
+    public AppointmentRepo(ClinicAppDatabase db)
     {
         _db = db;
     }
