@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Test1.Database;
+namespace ClinicApp.Database;
 
 public class AppointmentConfig : IEntityTypeConfiguration<Appointment>
 {

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Test1.Database;
+namespace ClinicApp.Database;
 
 public class ClinicDatabase : DbContext
 {

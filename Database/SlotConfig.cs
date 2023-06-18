@@ -1,9 +1,8 @@
 ﻿using ClinicApp.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ClinicApp.Entities;
 
-namespace Test1.Database;
+namespace ClinicApp.Database;
 
 public class SlotConfig : IEntityTypeConfiguration<Slot>
 {
