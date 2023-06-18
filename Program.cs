@@ -18,4 +18,6 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+app.MapGet("/", () => "Clinic Module");
+
 app.Run();
