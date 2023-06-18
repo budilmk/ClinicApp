@@ -1,0 +1,11 @@
+﻿@url = http://localhost:5249
+
+###
+POST {{url}}/slots
+Content-Type: application/json
+
+{
+    "schedule": "17/6/2023 00:00:00",
+    "doctorName": "budi",
+    "cost": 200
+}
