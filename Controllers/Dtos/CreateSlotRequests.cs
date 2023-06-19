@@ -45,5 +45,13 @@
 
     }
 
+    public class AppointmentUpdateRequest
+    {
+        public bool isCompleted { get; set; }
+        public Guid id { get; set; }
+
+
+    }
+
 }
 

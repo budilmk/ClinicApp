@@ -21,9 +21,11 @@ namespace ClinicApp.Services
             await _appointmentRepository.Add(appointment);
         }
 
-        public Task GetAvailableSlots()
+        public async Task AppointmentIsCompleted(bool status, Guid AppointmentId)
         {
-            throw new NotImplementedException();
+            _appointmentRepository.AppointmentIsCompleted(status, AppointmentId);
+
         }
+
     }
 }

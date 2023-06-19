@@ -26,8 +26,11 @@ public class AppointmentRepo : IAppointmentRepo
         await _db.SaveChangesAsync();
     }
 
-    public bool SlotIdIsReserved(Guid id)
+    public async Task AppointmentIsCompleted(bool status, Guid id)
     {
-        throw new NotImplementedException();
+        var result = new Appointment { Id = id, IsCompleted = status };
+        _db.Appointments.Attach(result).Property(x => x.IsCompleted).IsModified = true;
+        _db.SaveChanges();
+
     }
 }
