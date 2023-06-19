@@ -55,7 +55,10 @@ public class SlotRepo : ISlotRepository
     }
     public async Task UpdateSlotReservation(bool isReserved, Guid slotId)
     {
-
+        var result = new Slot { Id = slotId, IsReserved = isReserved };
+        _db.Slots.Attach(result).Property(x => x.IsReserved).IsModified = true;
+        _db.SaveChanges();
+        
     }
 
 

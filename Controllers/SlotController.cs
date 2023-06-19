@@ -42,6 +42,14 @@ namespace ClinicApp.Controllers
             return new JsonResult(_slotService.GetAvailableSlots());
         }
 
+        [HttpPost("/slots/updatereservation")]
+        public async Task<IActionResult> UpdateSlotReservation([FromBody] GetSlotUpdateRequest request)
+        {
+            await _slotService.UpdateSlotReservation(request.isReserved, request.slotId);
+            return Ok("Reservation updated");
+        }
+
+
 
 
 

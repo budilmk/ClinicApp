@@ -41,3 +41,23 @@ Content-Type: application/json
 {
 
 }
+
+###
+POST {{url}}/slots/updatereservation
+Content-Type: application/json
+
+{
+   "isReserved": false,
+   "slotId": "c4e6b69d-31eb-4ebd-be75-909872a9f271" 
+}
+
+###
+POST {{url}}/appointments/book
+Content-Type: application/json
+
+{
+   "patientName": "budi",
+   "patientId": "c5e6b69d-31eb-4ebd-be75-909872a9f272",
+   "slotId": "146a27fd-0e65-4214-b721-47c2a2499640"
+
+}

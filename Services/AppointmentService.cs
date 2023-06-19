@@ -8,6 +8,7 @@ namespace ClinicApp.Services
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepo _appointmentRepository;
+        private readonly ISlotRepository _slotRepository;
         public AppointmentService(IAppointmentRepo appointmentRepository)
         {
             _appointmentRepository = appointmentRepository;

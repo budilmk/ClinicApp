@@ -56,12 +56,8 @@ namespace ClinicApp
         public async Task UpdateSlotReservation(bool isReserved, Guid slotId)
         {
             await _slotRepository.UpdateSlotReservation(isReserved, slotId);
-            throw new NotImplementedException();
+
         }
 
-        public Task UpdateSlotReservation()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

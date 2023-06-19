@@ -23,15 +23,25 @@
 
     public class CreateAppointmentRequest
     {
-        public string? patientName { get; set; }
-        public Guid slotid { get; set; }
+        public string patientName { get; set; }
+
         public Guid patientId { get; set; }
+        public Guid slotId { get; set; }
+
 
     }
 
     public class ListSlotByDoctorRequest
     {
         public string doctorName { get; set; }
+
+    }
+
+    public class GetSlotUpdateRequest
+    {
+        public bool isReserved { get; set; }
+        public Guid slotId { get; set; }
+        
 
     }
 

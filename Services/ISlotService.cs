@@ -10,7 +10,7 @@ namespace ClinicApp.Services
         public Task <List<Slot>> GetSlotsByDoctor(string doctorName);
         public Task <List<Slot>> GetAllSlots();
         public Task <List<Slot>> GetAvailableSlots();
-        public Task UpdateSlotReservation();
+        public Task UpdateSlotReservation(bool isReserved, Guid slotId);
 
     }
 }
