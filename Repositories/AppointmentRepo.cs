@@ -23,7 +23,8 @@ public class AppointmentRepo : IAppointmentRepo
 
     public async Task Cancel(Guid Id)
     {
-        await _db.SaveChangesAsync();
+        var itemToRemove = _db.Appointments.SingleOrDefault(x => x.Id == Id);
+        _db.Appointments.Remove(itemToRemove);
     }
 
     public async Task AppointmentIsCompleted(bool status, Guid id)

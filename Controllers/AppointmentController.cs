@@ -36,7 +36,7 @@ namespace ClinicApp.Controllers
             return Ok("Appointment Updated...");
         }
 
-        //Question 3a TO get next appointment 
+        //Question 3a TO get next appointmen, check all next reserved slots
         [HttpPost("/appointments/nextappointment")]
         public async Task<IActionResult> NextAppointment([FromBody] NextAppointmentRequest request)
         {
