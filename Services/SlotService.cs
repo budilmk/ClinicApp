@@ -27,9 +27,18 @@ namespace ClinicApp
             throw new NotImplementedException();
         }
 
+        public async Task <List<Slot>> Get(string? doctorName)
+        {
+
+            return await _slotRepository.GetAll();
+
+            throw new NotImplementedException();
+        }
+
         public Task ListSlot(string doctorName)
         {
             throw new NotImplementedException();
         }
+
     }
 }

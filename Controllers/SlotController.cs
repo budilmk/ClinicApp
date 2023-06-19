@@ -22,6 +22,13 @@ namespace ClinicApp.Controllers
             return Ok("Slot Created...");
         }
 
+        [HttpPost("/query")]
+        public async Task<IActionResult> Get([FromBody] string? doctorName)
+        {
+            await _slotService.Get(doctorName);
+            return Ok("Slot listed...");
+        }
+
 
 
     }

@@ -5,7 +5,14 @@ POST {{url}}/slots
 Content-Type: application/json
 
 {
-    "schedule": "17/6/2023 00:00:00",
+    "time": "17/6/2023 00:00:00",
     "doctorName": "budi",
     "cost": 200
+}
+
+###
+POST {{url}}/slots/query
+
+{
+    "doctorName": "budi",
 }
