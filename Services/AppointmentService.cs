@@ -1,18 +1,24 @@
-﻿using ClinicApp.Services;
+﻿using ClinicApp.Entities;
+using ClinicApp.Repositories;
+using ClinicApp.Services;
+using Microsoft.Extensions.Hosting;
 
 namespace ClinicApp.Services
 {
     public class AppointmentService : IAppointmentService
     {
-
-        public Task BookSlot(Guid slotId)
+        private readonly IAppointmentRepo _appointmentRepository;
+        public AppointmentService(IAppointmentRepo appointmentRepository)
         {
-            throw new NotImplementedException();
+            _appointmentRepository = appointmentRepository;
         }
 
-        public Task GetAvailableSlots()
+        public async Task CreateAppointment(string patientName, Guid patientId, Guid slotId)
         {
-            throw new NotImplementedException();
+            var appointment = new Appointment { Id = Guid.NewGuid(), SlotId = slotId, PatientName = patientName, PatientId = patientId, ReservedAt = DateTime.UtcNow, IsCompleted = false };
+            await _appointmentRepository.Add(appointment);
         }
+
+
     }
 }

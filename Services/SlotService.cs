@@ -11,13 +11,14 @@ namespace ClinicApp
         {
             _slotRepository = slotRepository;
         }
-        public async Task CreateSlot(string time, string doctorName, decimal cost)
+        public async Task CreateSlot(string time, string doctorName, Guid doctorId, decimal cost)
         {
             if (string.IsNullOrEmpty(doctorName))
             {
 
             }
-            var slot = new Slot { Id = Guid.NewGuid(), Time = time, DoctorId = Guid.NewGuid(), DoctorName = doctorName, Cost = cost, IsReserved = false };
+
+            var slot = new Slot { Id = Guid.NewGuid(), Time = time, DoctorId = doctorId, DoctorName = doctorName, Cost = cost, IsReserved = false };
             await _slotRepository.Add(slot);
 
         }
@@ -36,6 +37,11 @@ namespace ClinicApp
         }
 
         public Task ListSlot(string doctorName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task GetAvailableSlots()
         {
             throw new NotImplementedException();
         }

@@ -15,6 +15,13 @@ namespace ClinicApp.Controllers
             _appointmentService = appointmentService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] CreateAppointmentRequest request)
+        {
+            await _appointmentService.CreateAppointment(request.patientName, request.patientId, request.slotid);
+            return Ok("Appointment Created...");
+        }
+
     }
 }
 

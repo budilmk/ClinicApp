@@ -18,7 +18,7 @@ namespace ClinicApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateSlotRequest request)
         {
-            await _slotService.CreateSlot(request.time, request.doctorName, request.cost);
+            await _slotService.CreateSlot(request.time, request.doctorName, request.doctorId, request.cost);
             return Ok("Slot Created...");
         }
 

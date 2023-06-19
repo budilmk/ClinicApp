@@ -11,6 +11,16 @@ Content-Type: application/json
 }
 
 ###
+POST {{url}}/appointments
+Content-Type: application/json
+
+{
+    "patientName": "Mark",
+    "PatientId": "4ceaa21b-c582-429b-a314-cf32275b1f4a",
+    "slotId": "7070f61c-62b4-4057-9140-e07880d9b70b"
+}
+
+###
 POST {{url}}/slots/query
 
 {

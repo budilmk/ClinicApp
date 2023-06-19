@@ -15,11 +15,6 @@ public class AppointmentRepo : IAppointmentRepo
         _db = db;
     }
 
-    public bool SlotIdIsReserved(Guid slotId)
-    {
-        return _db.Slots.Any(x => x.Equals(slotId));
-    }
-
     public async Task Add(Appointment appointment)
     {
         _db.Appointments.Add(appointment);
@@ -31,6 +26,8 @@ public class AppointmentRepo : IAppointmentRepo
         await _db.SaveChangesAsync();
     }
 
-
-
+    public bool SlotIdIsReserved(Guid id)
+    {
+        throw new NotImplementedException();
+    }
 }
