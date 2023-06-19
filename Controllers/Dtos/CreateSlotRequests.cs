@@ -50,6 +50,11 @@
         public bool isCompleted { get; set; }
         public Guid id { get; set; }
 
+    }
+
+    public class NextAppointmentRequest
+    {
+        public string doctorName { get; set; }
 
     }
 

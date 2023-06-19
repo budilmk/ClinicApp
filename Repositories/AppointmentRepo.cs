@@ -33,4 +33,12 @@ public class AppointmentRepo : IAppointmentRepo
         _db.SaveChanges();
 
     }
+
+    public async Task GetNextAppointment(string doctorName)
+    {
+        _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time == "xxx").ToList();
+        await _db.SaveChangesAsync();
+
+
+    }
 }

@@ -36,6 +36,14 @@ namespace ClinicApp.Controllers
             return Ok("Appointment Updated...");
         }
 
+        //Question 3a TO get next appointment 
+        [HttpPost("/appointments/nextappointment")]
+        public async Task<IActionResult> NextAppointment([FromBody] NextAppointmentRequest request)
+        {
+            return new JsonResult(_appointmentService.GetNextAppointment(request.doctorName)); //Mark appointment as completed
+        }
+
+
     }
 }
 

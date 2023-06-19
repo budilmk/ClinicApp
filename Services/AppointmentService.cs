@@ -27,5 +27,11 @@ namespace ClinicApp.Services
 
         }
 
+        public async Task GetNextAppointment(string doctorName)
+        {
+            _appointmentRepository.GetNextAppointment(doctorName);
+
+        }
+
     }
 }
