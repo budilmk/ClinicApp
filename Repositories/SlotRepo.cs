@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Eventing.Reader;
 using ClinicApp.Database;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace ClinicApp.Repositories;
 
@@ -31,12 +32,14 @@ public class SlotRepo : ISlotRepository
         await _db.SaveChangesAsync();
     }
 
-    public async Task ListSlot(string doctorName)
+    public async Task <List<Slot>> ListSlotByDoctor(string doctorName)
     {
+        var slots = _db.Slots.Where(x => x.DoctorName == doctorName).ToList();
+        return slots;
 
     }
 
-    public async Task<List<Slot>> GetAll()
+    public async Task<List<Slot>> ListAllSlots()
     {
         return _db.Slots.ToList();
 

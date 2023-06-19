@@ -6,8 +6,8 @@ Content-Type: application/json
 
 {
     "time": "17/6/2023 00:00:00",
-    "doctorName": "budi",
-    "cost": 200
+    "doctorName": "ABC",
+    "cost": 500
 }
 
 ###

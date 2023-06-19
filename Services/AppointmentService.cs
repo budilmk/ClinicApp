@@ -19,6 +19,9 @@ namespace ClinicApp.Services
             await _appointmentRepository.Add(appointment);
         }
 
-
+        public Task GetAvailableSlots()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

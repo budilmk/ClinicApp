@@ -8,7 +8,7 @@ namespace ClinicApp.Repositories
         public bool SlotIdIsExist(Guid id);
         public Task Add(Slot slot);
         public Task Delete(Guid slotId);
-        public Task ListSlot(string doctorName);
-        public Task <List<Slot>> GetAll();
+        public Task <List<Slot>> ListSlotByDoctor(string doctorName);
+        public Task <List<Slot>> ListAllSlots();
     }
 }
