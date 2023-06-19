@@ -6,7 +6,7 @@ Content-Type: application/json
 
 {
     "time": "17/6/2023 00:00:00",
-    "doctorName": "ABC",
+    "doctorName": "budi",
     "cost": 500
 }
 
@@ -21,8 +21,23 @@ Content-Type: application/json
 }
 
 ###
-POST {{url}}/slots/query
+POST {{url}}/slots/doctor
+Content-Type: application/json
 
 {
-    "doctorName": "budi",
+    "doctorName": "budi"
+}
+
+###
+POST {{url}}/slots/getall
+Content-Type: application/json
+{
+
+}
+
+###
+POST {{url}}/slots/getavailable
+Content-Type: application/json
+{
+
 }

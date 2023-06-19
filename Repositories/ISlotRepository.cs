@@ -10,5 +10,7 @@ namespace ClinicApp.Repositories
         public Task Delete(Guid slotId);
         public Task <List<Slot>> ListSlotByDoctor(string doctorName);
         public Task <List<Slot>> ListAllSlots();
+        public Task<List<Slot>> ListAvailableSlots();
+        public Task UpdateSlotReservation(bool isReserved, Guid slotId);    
     }
 }

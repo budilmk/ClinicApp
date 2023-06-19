@@ -20,7 +20,7 @@ namespace ClinicApp
 
             }
 
-            var slot = new Slot { Id = Guid.NewGuid(), Time = time, DoctorId = doctorId, DoctorName = doctorName, Cost = cost, IsReserved = false };
+            var slot = new Slot { Id = Guid.NewGuid(), Time = time, DoctorId = doctorId, DoctorName = doctorName, Cost = cost, IsReserved = true };
             await _slotRepository.Add(slot);
 
         }
@@ -49,8 +49,19 @@ namespace ClinicApp
 
         public async Task <List<Slot>> GetAvailableSlots()
         {
+            return await _slotRepository.ListAvailableSlots();
             throw new NotImplementedException();
         }
 
+        public async Task UpdateSlotReservation(bool isReserved, Guid slotId)
+        {
+            await _slotRepository.UpdateSlotReservation(isReserved, slotId);
+            throw new NotImplementedException();
+        }
+
+        public Task UpdateSlotReservation()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

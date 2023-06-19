@@ -13,6 +13,7 @@ namespace ClinicApp.Services
             _appointmentRepository = appointmentRepository;
         }
 
+        //question 2
         public async Task CreateAppointment(string patientName, Guid patientId, Guid slotId)
         {
             var appointment = new Appointment { Id = Guid.NewGuid(), SlotId = slotId, PatientName = patientName, PatientId = patientId, ReservedAt = DateTime.UtcNow, IsCompleted = false };

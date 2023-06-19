@@ -29,5 +29,11 @@
 
     }
 
+    public class ListSlotByDoctorRequest
+    {
+        public string doctorName { get; set; }
+
+    }
+
 }
 
