@@ -61,3 +61,21 @@ Content-Type: application/json
    "slotId": "146a27fd-0e65-4214-b721-47c2a2499640"
 
 }
+
+###
+POST {{url}}/appointments/iscomplete
+Content-Type: application/json
+
+{
+   "isCompleted": true,
+   "Id": "c5e6b69d-31eb-4ebd-be75-909872a9f272"
+
+}
+
+###
+POST {{url}}/appointments/nextappointment
+Content-Type: application/json
+
+{
+   "doctorName": "budi"
+}
