@@ -58,5 +58,28 @@
 
     }
 
+    public class NextAppointmentsRequest
+    {
+        public string doctorName { get; set; }
+
+    }
+
+    public class CancelAppointmentRequest
+    {
+        public Guid appointmentId { get; set; }
+
+    }
+
+    public class GetUpcomingSlotRequest
+    {
+        public string doctorName { get; set; }
+
+    }
+
+    public class GetUpcomingSlotRequests
+    {
+        public string doctorName { get; set; }
+
+    }
 }
 

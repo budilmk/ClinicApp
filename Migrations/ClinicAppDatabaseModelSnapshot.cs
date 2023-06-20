@@ -67,8 +67,8 @@ namespace ClinicApp.Migrations
                     b.Property<bool?>("IsReserved")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Time")
-                        .HasColumnType("text");
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

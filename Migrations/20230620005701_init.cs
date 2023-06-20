@@ -37,7 +37,7 @@ namespace ClinicApp.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
-                    Time = table.Column<string>(type: "text", nullable: true),
+                    Time = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uuid", nullable: false),
                     DoctorName = table.Column<string>(type: "text", nullable: true),
                     IsReserved = table.Column<bool>(type: "boolean", nullable: true),

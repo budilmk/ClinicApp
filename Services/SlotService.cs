@@ -15,19 +15,18 @@ namespace ClinicApp
         //Question 1a,b
         public async Task CreateSlot(string time, string doctorName, Guid doctorId, decimal cost)
         {
-            if (string.IsNullOrEmpty(doctorName))
-            {
 
-            }
-
-            var slot = new Slot { Id = Guid.NewGuid(), Time = time, DoctorId = doctorId, DoctorName = doctorName, Cost = cost, IsReserved = true };
+            var dateTime = DateTime.Parse(time);
+            dateTime = DateTime.SpecifyKind(dateTime, DateTimeKind.Utc);
+            var slot = new Slot { Id = Guid.NewGuid(), Time = dateTime, DoctorName = doctorName, DoctorId = doctorId, Cost = cost, IsReserved = false };
             await _slotRepository.Add(slot);
 
         }
 
-        public Task DeleteSlot(Guid id)
+        public async Task DeleteSlot(Guid id)
         {
-            throw new NotImplementedException();
+            await _slotRepository.Delete(id);
+     
         }
 
         //Question 1a
@@ -56,6 +55,18 @@ namespace ClinicApp
         public async Task UpdateSlotReservation(bool isReserved, Guid slotId)
         {
             await _slotRepository.UpdateSlotReservation(isReserved, slotId);
+
+        }
+
+        public Guid GetUpcomingSlotId(string doctorName)
+        {
+            return _slotRepository.GetUpcomingSlotId(doctorName);
+
+        }
+
+        public List<Guid> GetUpcomingSlotIds(string doctorName)
+        {
+            return _slotRepository.GetUpcomingSlotIds(doctorName);
 
         }
 

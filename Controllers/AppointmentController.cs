@@ -36,14 +36,31 @@ namespace ClinicApp.Controllers
             return Ok("Appointment Updated...");
         }
 
-        //Question 3a TO get next appointmen, check all next reserved slots
+        //Question 3a TO get next appointment, check all next reserved slots
         [HttpPost("/appointments/nextappointment")]
         public async Task<IActionResult> NextAppointment([FromBody] NextAppointmentRequest request)
         {
-            return new JsonResult(_appointmentService.GetNextAppointment(request.doctorName)); //Mark appointment as completed
+            
+            return Ok(_appointmentService.GetNextAppointment(request.doctorName)); 
         }
 
+        //Question 3a TO get multiple next appointment, check all next reserved slots
+        [HttpPost("/appointments/nextappointments")]
+        public async Task<IActionResult> NextAppointments([FromBody] NextAppointmentsRequest request)
+        {
+            return Ok(_appointmentService.GetNextAppointments(request.doctorName));
+        }
+
+        //Question 3b To cancel appointment and delete
+        [HttpPost("/appointments/cancel")]
+        public async Task<IActionResult> CancelAppointment([FromBody] CancelAppointmentRequest request)
+        {
+            await _appointmentService.CancelAppointment(request.appointmentId);
+            return Ok("Appointment cancelled...");
+
+        }
 
     }
 }
+
 

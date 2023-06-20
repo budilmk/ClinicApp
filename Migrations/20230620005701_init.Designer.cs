@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ClinicApp.Migrations
 {
     [DbContext(typeof(ClinicAppDatabase))]
-    [Migration("20230618034107_init")]
+    [Migration("20230620005701_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -70,8 +70,8 @@ namespace ClinicApp.Migrations
                     b.Property<bool?>("IsReserved")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Time")
-                        .HasColumnType("text");
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

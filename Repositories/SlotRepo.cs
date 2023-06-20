@@ -50,7 +50,7 @@ public class SlotRepo : ISlotRepository
 
     public async Task<List<Slot>> ListAvailableSlots()
     {
-        return _db.Slots.Where(x => x.IsReserved == true).ToList();
+        return _db.Slots.Where(x => x.IsReserved == false).ToList();
 
     }
     public async Task UpdateSlotReservation(bool isReserved, Guid slotId)
@@ -59,6 +59,30 @@ public class SlotRepo : ISlotRepository
         _db.Slots.Attach(result).Property(x => x.IsReserved).IsModified = true;
         _db.SaveChanges();
         
+    }
+
+    public Guid GetUpcomingSlotId(string doctorName)
+    {
+
+            var result = _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time > DateTime.UtcNow).Single();
+            Console.WriteLine(result.Id);
+            return result.Id;
+
+
+        
+    }
+
+    public List<Guid> GetUpcomingSlotIds(string doctorName)
+    {
+        List<Guid> slotIds = new List<Guid>();
+        var slot = _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time > DateTime.UtcNow).ToList();
+        foreach (var slotId in slot) 
+        {
+            slotIds.Add(slotId.Id);
+        }
+        
+        return slotIds;
+
     }
 
 

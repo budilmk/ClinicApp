@@ -23,8 +23,9 @@ public class AppointmentRepo : IAppointmentRepo
 
     public async Task Cancel(Guid Id)
     {
-        var itemToRemove = _db.Appointments.SingleOrDefault(x => x.Id == Id);
+        var itemToRemove = _db.Appointments.Single(x => x.Id == Id);
         _db.Appointments.Remove(itemToRemove);
+        _db.SaveChanges();
     }
 
     public async Task AppointmentIsCompleted(bool status, Guid id)
@@ -35,10 +36,23 @@ public class AppointmentRepo : IAppointmentRepo
 
     }
 
-    public async Task GetNextAppointment(string doctorName)
+    public async Task<List<Appointment>> GetNextAppointment(Guid Id)
+    {    
+        return _db.Appointments.Where(x => x.SlotId == Id).ToList();
+
+
+    }
+
+    public async Task<List<Appointment>> GetNextAppointments(List<Guid> Id)
     {
-        _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time == "xxx").ToList();
-        await _db.SaveChangesAsync();
+        List<Appointment> result = new List<Appointment>();
+        var y = 0;
+        foreach(var x in Id)
+        {
+            result.Add(_db.Appointments.Where(x => x.SlotId == Id[y]).Single());
+            y++;
+        }
+        return result;
 
 
     }
