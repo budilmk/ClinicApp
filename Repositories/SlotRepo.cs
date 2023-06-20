@@ -48,6 +48,7 @@ public class SlotRepo : ISlotRepository
 
     }
 
+    //check IsReserved field, return only true
     public async Task<List<Slot>> ListAvailableSlots()
     {
         return _db.Slots.Where(x => x.IsReserved == false).ToList();

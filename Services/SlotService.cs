@@ -21,7 +21,7 @@ namespace ClinicApp
             }
 
             var dateTime = DateTime.Parse(time);
-            dateTime = DateTime.SpecifyKind(dateTime, DateTimeKind.Utc);
+            dateTime = DateTime.SpecifyKind(dateTime, DateTimeKind.Utc); //convert format to UTC as required by db
             var slot = new Slot { Id = Guid.NewGuid(), Time = dateTime, DoctorName = doctorName, DoctorId = doctorId, Cost = cost, IsReserved = false };
             await _slotRepository.Add(slot);
 

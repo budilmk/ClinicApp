@@ -25,22 +25,20 @@ public class AppointmentRepo : IAppointmentRepo
     {
         var itemToRemove = _db.Appointments.Single(x => x.Id == Id);
         _db.Appointments.Remove(itemToRemove);
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
     }
 
     public async Task AppointmentIsCompleted(bool status, Guid id)
     {
         var result = new Appointment { Id = id, IsCompleted = status };
         _db.Appointments.Attach(result).Property(x => x.IsCompleted).IsModified = true;
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
 
     }
 
     public async Task<List<Appointment>> GetNextAppointment(Guid Id)
     {    
         return _db.Appointments.Where(x => x.SlotId == Id).ToList();
-
-
     }
 
     public async Task<List<Appointment>> GetNextAppointments(List<Guid> Id)
