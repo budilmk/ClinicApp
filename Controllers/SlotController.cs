@@ -15,7 +15,14 @@ namespace ClinicApp.Controllers
             _slotService = slotService;
         }
 
-        //Qn 1b To add new slots
+        //Qn 1a. To list only doctor's slots
+        [HttpPost("/slots/doctor")]
+        public async Task<IActionResult> GetSlotsByDoctor([FromBody] ListSlotByDoctorRequest request)
+        {
+            return Ok(await _slotService.GetSlotsByDoctor(request.doctorName));
+        }
+
+        //Qn 1b To create new slots
         [HttpPost]
         public async Task<IActionResult> CreateSlot([FromBody] CreateSlotRequest request)
         {
@@ -30,22 +37,6 @@ namespace ClinicApp.Controllers
             return Ok("Slot deleted...");
         }
 
-        //Qn 1a. To list my slots
-        [HttpPost("/slots/doctor")]
-        public async Task<IActionResult> GetSlotsByDoctor([FromBody] ListSlotByDoctorRequest request)
-        {
-         
-            return new JsonResult(_slotService.GetSlotsByDoctor(request.doctorName));
-        }
-
-        //To get all slots irregardless of availability
-        [HttpPost("/slots/getall")]
-        public async Task<IActionResult> GetAllSlots()
-        {
-            await _slotService.GetAllSlots();
-            return new JsonResult(_slotService.GetAllSlots()); 
-        }
-
         //Qn 2a. To view all doctor's available slots only
         [HttpPost("/slots/getavailable")] //
         public async Task<IActionResult> GetAvailableSlots()
@@ -54,21 +45,24 @@ namespace ClinicApp.Controllers
             return Ok(_slotService.GetAvailableSlots());
         }
 
-        [HttpPost("/slots/updatereservation")] //API to update reservation status
+        //To view all slots irregardless of availability
+        [HttpPost("/slots/getall")]
+        public async Task<IActionResult> GetAllSlots()
+        {
+            await _slotService.GetAllSlots();
+            return new JsonResult(_slotService.GetAllSlots()); 
+        }
+
+        //Qn 2b. API to mark slot as reserved whenever a patient books an appointment 
+        [HttpPost("/slots/updatereservation")] 
         public async Task<IActionResult> UpdateSlotReservation([FromBody] GetSlotUpdateRequest request)
         {
             await _slotService.UpdateSlotReservation(request.isReserved, request.slotId);
             return Ok("Reservation updated");
         }
 
-        [HttpPost("/slots/upcoming")] //API to update reservation status
-        public async Task<IActionResult> GetUpcomingSlot([FromBody] GetUpcomingSlotRequest request)
-        {
-            
-            return new JsonResult(_slotService.GetUpcomingSlotId(request.doctorName));
-        }
-
-        [HttpPost("/slots/upcomings")] //API to update reservation status
+        //Qn 3a. to retrieve the slotIds of upcoming reserved slots
+        [HttpPost("/slots/upcomings")] 
         public async Task<IActionResult> GetUpcomingSlots([FromBody] GetUpcomingSlotRequest request)
         {
 

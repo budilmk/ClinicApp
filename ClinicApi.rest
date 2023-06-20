@@ -5,7 +5,7 @@ POST {{url}}/slots
 Content-Type: application/json
 
 {
-    "time": "21/6/2023 05:30:00",
+    "time": "23/6/2023 05:30:00",
     "doctorName": "budi",
     "doctorId": "4ceaa21b-c582-429b-a314-cf32275b1f4a",
     "cost": 500
@@ -59,7 +59,7 @@ Content-Type: application/json
 {
    "patientName": "budi",
    "patientId": "c5e6b69d-31eb-4ebd-be75-909872a9f272",
-   "slotId": "088795fe-b360-4a47-b600-d66172fddef7"
+   "slotId": 	"147dced6-da6d-4d50-93bb-8e5476a56a3f"
 
 }
 
@@ -73,13 +73,6 @@ Content-Type: application/json
 
 }
 
-###
-POST {{url}}/appointments/nextappointment
-Content-Type: application/json
-
-{
-   "doctorName": "budi"
-}
 
 ###
 POST {{url}}/appointments/nextappointments
@@ -97,13 +90,6 @@ Content-Type: application/json
    "appointmentId": "8a6a9608-a820-473d-9893-529b96c6e7cd"
 }
 
-###
-POST {{url}}/slots/upcoming
-Content-Type: application/json
-
-{
-   "doctorName": "budi"
-}
 
 ###
 POST {{url}}/slots/upcomings

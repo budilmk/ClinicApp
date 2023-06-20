@@ -1,6 +1,6 @@
 ﻿using ClinicApp.Entities;
 using ClinicApp.Repositories;
-using ClinicApp.Services;
+using ClinicApp.Services.Exceptions;
 namespace ClinicApp
     .Services
 {
@@ -15,6 +15,10 @@ namespace ClinicApp
         //Question 1a,b
         public async Task CreateSlot(string time, string doctorName, Guid doctorId, decimal cost)
         {
+            if (string.IsNullOrEmpty(doctorName))
+            {
+                throw new DoctorNameEmptyException();
+            }
 
             var dateTime = DateTime.Parse(time);
             dateTime = DateTime.SpecifyKind(dateTime, DateTimeKind.Utc);
@@ -32,24 +36,18 @@ namespace ClinicApp
         //Question 1a
         public async Task <List<Slot>> GetSlotsByDoctor(string? doctorName)
         {
-
             return await _slotRepository.ListSlotByDoctor(doctorName);
 
-            throw new NotImplementedException();
         }
 
         public async Task<List<Slot>> GetAllSlots()
         {
-
             return await _slotRepository.ListAllSlots();
-
-            throw new NotImplementedException();
         }
 
         public async Task <List<Slot>> GetAvailableSlots()
         {
             return await _slotRepository.ListAvailableSlots();
-            throw new NotImplementedException();
         }
 
         public async Task UpdateSlotReservation(bool isReserved, Guid slotId)

@@ -57,21 +57,20 @@ public class SlotRepo : ISlotRepository
     {
         var result = new Slot { Id = slotId, IsReserved = isReserved };
         _db.Slots.Attach(result).Property(x => x.IsReserved).IsModified = true;
-        _db.SaveChanges();
+        await _db.SaveChangesAsync();
         
     }
 
+    //return single Id
     public Guid GetUpcomingSlotId(string doctorName)
     {
-
-            var result = _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time > DateTime.UtcNow).Single();
-            Console.WriteLine(result.Id);
-            return result.Id;
-
-
-        
+        var result = _db.Slots.Where(x => x.IsReserved == true).Where(x => x.DoctorName == doctorName).Where(x => x.Time > DateTime.UtcNow).Single();
+        Console.WriteLine(result.Id);
+        return result.Id;
+       
     }
 
+    //return multiple Ids
     public List<Guid> GetUpcomingSlotIds(string doctorName)
     {
         List<Guid> slotIds = new List<Guid>();

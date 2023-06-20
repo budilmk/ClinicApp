@@ -29,7 +29,7 @@ namespace ClinicApp.Services
 
         public async Task AppointmentIsCompleted(bool status, Guid AppointmentId)
         {
-            _appointmentRepository.AppointmentIsCompleted(status, AppointmentId);
+            await _appointmentRepository.AppointmentIsCompleted(status, AppointmentId);
 
         }
 

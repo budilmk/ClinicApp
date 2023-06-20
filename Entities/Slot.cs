@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
 
 namespace ClinicApp.Entities
 {
     public class Slot
     {
         [Key] public Guid Id { get; set; }
-        public DateTime Time { get; set; }
-        public Guid DoctorId { get; set; }
-        public string? DoctorName { get; set; }
+        [Required] public DateTime Time { get; set; }
+        [Required] public Guid DoctorId { get; set; }
+        [Required][MinLength(2)] public string? DoctorName { get; set; }
         public bool? IsReserved { get; set; }
-        public decimal? Cost { get; set; }
+        [Required][Range(0,1000000000)] public decimal? Cost { get; set; }
 
     }
 }
