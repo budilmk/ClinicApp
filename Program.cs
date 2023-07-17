@@ -3,8 +3,13 @@ using Microsoft.Extensions.Hosting;
 using ClinicApp.Services;
 using ClinicApp.Repositories;
 using ClinicApp.Database;
+using Microsoft.AspNetCore.HttpLogging;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddHttpLogging(options =>
+{
+    options.LoggingFields = HttpLoggingFields.All;
+});
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -17,6 +22,7 @@ builder.Services.AddTransient<IAppointmentRepo, AppointmentRepo>();
 
 var app = builder.Build();
 
+app.UseHttpLogging();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

@@ -5,7 +5,7 @@ POST {{url}}/slots
 Content-Type: application/json
 
 {
-    "time": "23/6/2023 05:30:00",
+    "time": "20/7/2023 05:30:00",
     "doctorName": "budi",
     "doctorId": "4ceaa21b-c582-429b-a314-cf32275b1f4a",
     "cost": 500
@@ -16,9 +16,9 @@ POST {{url}}/appointments
 Content-Type: application/json
 
 {
-    "patientName": "Mark",
-    "PatientId": "4ceaa21b-c582-429b-a314-cf32275b1f4a",
-    "slotId": "7070f61c-62b4-4057-9140-e07880d9b70b"
+    "patientName": "John",
+    "PatientId": "4ceaa21b-c582-429b-a314-cf32275b1f4b",
+    "slotId": "11612437-1a47-4c6d-8c2d-9e1cf9f1b3d9"
 }
 
 ###
@@ -49,7 +49,7 @@ Content-Type: application/json
 
 {
    "isReserved": false,
-   "slotId": "c4e6b69d-31eb-4ebd-be75-909872a9f271" 
+   "slotId": "11612437-1a47-4c6d-8c2d-9e1cf9f1b3d9" 
 }
 
 ###
@@ -57,9 +57,9 @@ POST {{url}}/appointments/book
 Content-Type: application/json
 
 {
-   "patientName": "budi",
-   "patientId": "c5e6b69d-31eb-4ebd-be75-909872a9f272",
-   "slotId": 	"147dced6-da6d-4d50-93bb-8e5476a56a3f"
+   "patientName": "john",
+   "patientId": "c5e6b69d-31eb-4ebd-be75-909872a9f273",
+   "slotId": 	"f3e3bddd-7639-493d-af73-2b93d1772310"
 
 }
 
@@ -87,7 +87,7 @@ POST {{url}}/appointments/cancel
 Content-Type: application/json
 
 {
-   "appointmentId": "8a6a9608-a820-473d-9893-529b96c6e7cd"
+   "appointmentId": "11e0ff96-1626-494e-b410-c4922bdebcc3"
 }
 
 
