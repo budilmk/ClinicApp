@@ -9,11 +9,13 @@ namespace ClinicApp.Controllers
     {
         private readonly IAppointmentService _appointmentService;
         private readonly ISlotService _slotService;
+        private readonly ILogger<AppointmentController> _logger;
 
-        public AppointmentController(IAppointmentService appointmentService, ISlotService slotService)
+        public AppointmentController(IAppointmentService appointmentService, ISlotService slotService, ILogger<AppointmentController> logger)
         {
             _appointmentService = appointmentService;
             _slotService = slotService;
+            _logger = logger;
         }
 
         //Question 2b To book an appointment and update slot reservation status
@@ -22,6 +24,10 @@ namespace ClinicApp.Controllers
         {
             await _appointmentService.CreateAppointment(request.patientName, request.patientId, request.slotId); //create new appointment
             await _slotService.UpdateSlotReservation(true, request.slotId); //update slot status to true
+            _logger.LogInformation("Patient Name: ${PatientName}", request.patientName);
+            _logger.LogInformation("Doctor Name: " + _slotService.GetDoctorNameBySlotId(request.slotId));
+            _logger.LogInformation("Appointment Time: ${Time}", _slotService.GetAppointmentTimeBySlotId(request.slotId));
+
 
             return Ok("Appointment Created...");
         }

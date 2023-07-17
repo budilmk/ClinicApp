@@ -12,6 +12,8 @@ namespace ClinicApp.Repositories
         public Task <List<Slot>> ListAllSlots();
         public Task<List<Slot>> ListAvailableSlots();
         public Guid GetUpcomingSlotId(string doctorName);
+        public string GetDoctorNameBySlotId(Guid slotId);
+        public DateTime GetAppointmentTimeBySlotId(Guid slotId);
         public List<Guid> GetUpcomingSlotIds(string doctorName);
         public Task UpdateSlotReservation(bool isReserved, Guid slotId); 
         

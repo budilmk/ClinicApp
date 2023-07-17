@@ -62,6 +62,18 @@ namespace ClinicApp
 
         }
 
+        public string GetDoctorNameBySlotId(Guid slotid)
+        {
+            return _slotRepository.GetDoctorNameBySlotId(slotid);
+
+        }
+
+        public DateTime GetAppointmentTimeBySlotId(Guid slotid)
+        {
+            return _slotRepository.GetAppointmentTimeBySlotId(slotid);
+
+        }
+
         public List<Guid> GetUpcomingSlotIds(string doctorName)
         {
             return _slotRepository.GetUpcomingSlotIds(doctorName);

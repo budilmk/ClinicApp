@@ -71,6 +71,21 @@ public class SlotRepo : ISlotRepository
        
     }
 
+    public string GetDoctorNameBySlotId(Guid slotid)
+    {
+        var result = _db.Slots.Where(x => x.Id == slotid).Single();
+        Console.WriteLine(result.DoctorName);
+        return result.DoctorName;
+
+    }
+
+    public DateTime GetAppointmentTimeBySlotId(Guid slotid)
+    {
+        var result = _db.Slots.Where(x => x.Id == slotid).Single();
+        Console.WriteLine(result.Time);
+        return result.Time;
+    }
+
     //return multiple Ids
     public List<Guid> GetUpcomingSlotIds(string doctorName)
     {
