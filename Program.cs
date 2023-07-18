@@ -5,7 +5,7 @@ using ClinicApp.Repositories;
 using ClinicApp.Database;
 using Microsoft.AspNetCore.HttpLogging;
 using Serilog;
-using Src.API.Security;
+using ClinicApp.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 

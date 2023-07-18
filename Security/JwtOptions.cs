@@ -1,4 +1,4 @@
-﻿namespace Src.API.Security;
+﻿namespace ClinicApp.Security;
 
     // Create JwtConfig class 
 public record JwtOptions

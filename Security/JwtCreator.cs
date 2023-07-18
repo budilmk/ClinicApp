@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Src.API.Security;
+namespace ClinicApp.Security;
 
 public class JwtCreator
 {

@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Src.API.Security;
+namespace ClinicApp.Security;
 
 public static class AuthenticationExtension
 {

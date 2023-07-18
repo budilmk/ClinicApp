@@ -1,4 +1,4 @@
-﻿namespace Src.Application.Dtos;
+﻿namespace ClinicApp.Controllers.Dtos;
 
 public class LoginRequest
 {

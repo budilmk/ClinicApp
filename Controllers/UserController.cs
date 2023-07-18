@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Src.API.Security;
+using ClinicApp.Security;
 using ClinicApp.Controllers.Dtos;
 
 namespace ClinicApp.Controllers
