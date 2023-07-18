@@ -1,5 +1,6 @@
 ﻿using ClinicApp.Controllers.Dtos;
 using ClinicApp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 

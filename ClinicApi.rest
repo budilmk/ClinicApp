@@ -5,7 +5,7 @@ POST {{url}}/slots
 Content-Type: application/json
 
 {
-    "time": "23/7/2023 05:30:00",
+    "time": "24/7/2023 05:30:00",
     "doctorName": "budi",
     "doctorId": "4ceaa21b-c582-429b-a314-cf32275b1f4a",
     "cost": 500
@@ -105,5 +105,13 @@ Content-Type: application/json
 
 {
    "slotid": "088795fe-b360-4a47-b600-d66172fddef7"
+}
+
+###
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "UserName": "admin"
 }
 

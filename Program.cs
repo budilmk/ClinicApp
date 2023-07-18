@@ -5,6 +5,7 @@ using ClinicApp.Repositories;
 using ClinicApp.Database;
 using Microsoft.AspNetCore.HttpLogging;
 using Serilog;
+using Src.API.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +22,8 @@ builder.Services.AddHttpLogging(options =>
 });
 
 // Add services to the container.
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(JwtOptions.SectionName));
+builder.Services.AddClinicAuthentication(builder.Configuration);
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 builder.Services.AddClinicAppDb(builder.Configuration);
@@ -41,12 +44,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
 app.MapRazorPages();
 
 app.MapGet("/", () => "Clinic Module");
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
+
 
 app.Run();

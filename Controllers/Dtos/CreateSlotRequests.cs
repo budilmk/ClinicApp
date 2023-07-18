@@ -81,5 +81,11 @@
         public string doctorName { get; set; }
 
     }
+
+    public class LoginRequest
+    {
+        public string UserName { get; set; }
+
+    }
 }
 
