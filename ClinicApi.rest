@@ -32,6 +32,7 @@ Content-Type: application/json
 ###
 POST {{url}}/slots/getall
 Content-Type: application/json
+//Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiYWRtaW4iLCJleHAiOjE2ODk3MjU4MjYsImlzcyI6IkNsaW5pY19TZXJ2aWNlIiwiYXVkIjoiQ2xpbmljX1NlcnZpY2UifQ.xvwoz4jRRIXGiuOl8NuPMhk7l2flZ2sTX8QCX3rRmcE
 {
 
 }

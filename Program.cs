@@ -31,6 +31,7 @@ builder.Services.AddTransient<ISlotService, SlotService>();
 builder.Services.AddTransient<ISlotRepository, SlotRepo>();
 builder.Services.AddTransient<IAppointmentService, AppointmentService>();
 builder.Services.AddTransient<IAppointmentRepo, AppointmentRepo>();
+builder.Services.AddTransient<JwtCreator>();
 
 var app = builder.Build();
 

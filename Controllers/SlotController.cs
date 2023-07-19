@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ClinicApp.Controllers
 {
     [Route("/slots")]
+    [Authorize]
     public class SlotController : ControllerBase
     {
         private readonly ISlotService _slotService;
